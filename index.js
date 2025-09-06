@@ -1,6 +1,17 @@
 const catagoryContainer = document.getElementById("catagoryContainer");
 const categoryContent = document.getElementById("categoryContent");
 
+const manageSpinner = (status) =>{
+  if(status){
+    document.getElementById('spinner').classList.remove('hidden')
+    document.getElementById('categoryContent').classList.add('hidden')
+  } else {
+    document.getElementById('spinner').classList.add('hidden')
+    document.getElementById('categoryContent').classList.remove('hidden')
+  }
+}
+
+
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -9,6 +20,7 @@ const loadCategory = () => {
 };
 
 const displayCategory = (categories) => {
+
   catagoryContainer.innerHTML = "";
   categories.forEach((category) => {
     catagoryContainer.innerHTML += `
@@ -30,6 +42,7 @@ const displayCategory = (categories) => {
 };
 
 const loadCategoryContent = (categoryId) => {
+  manageSpinner(true)
   fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
     .then((res) => res.json())
     .then((data) => showCategoryContent(data.plants))
@@ -56,12 +69,13 @@ const showCategoryContent = (contents) => {
             <p class="text-right font-semibold dark1 text-[14px]">${content.price}</p>
           </div>
           <div class="card-actions">
-            <button class="btn btn-bg w-full rounded-3xl">Add to Cart</button>
+            <button id="addCardBtn" class="btn btn-bg w-full rounded-3xl">Add to Cart</button>
           </div>
         </div>
       </div>
     `;
   });
+  manageSpinner(false)
 };
 
 const loadAllPlants = () => {
@@ -75,11 +89,11 @@ const url =`https://openapi.programming-hero.com/api/plant/${id}`;
   fetch(url)
     .then(res => res.json())
     .then(details => {
-      displayWordDetails(details.plants);
+      displayImgDetails(details.plants);
     });
 };
 
-const displayWordDetails = (plant) =>{
+const displayImgDetails = (plant) =>{
   const detailsBox = document.getElementById('details-container')
   document.getElementById("word_modal").showModal()
 
