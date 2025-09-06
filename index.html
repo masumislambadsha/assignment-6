@@ -25,7 +25,8 @@
     </style>
   </head>
   <body>
-    <nav class="">
+
+<nav class="">
       <div
         class="text-white navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]"
       >
@@ -95,7 +96,8 @@
         <button>
           <a
             class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0 mt-[36px] mb-[40px] md:mb-[20px]"
-            >Get Involved</a
+          >
+            Get Involved</a
           >
         </button>
       </div>
@@ -127,7 +129,9 @@
           </ul>
         </div>
         <div class="col-span-4">
-          <div class="flex flex-col items-center md:grid md: grid-cols-2 lg:grid lg:grid-cols-3 gap-5">
+          <div
+            class="flex flex-col items-center md:grid md: grid-cols-2 lg:grid lg:grid-cols-3 gap-5"
+          >
             <div class="card bg-base-100 w-[300px] shadow-sm mt-3">
               <figure>
                 <img
@@ -428,12 +432,14 @@
       >
         About the Campaign
       </h1>
-      <div class="flex justify-around items-center px-[200px]">
+      <div
+        class="flex justify-around flex-col md:flex-row items-center px-[20px] md:px-[200px]"
+      >
         <div>
           <img src="./assets/about.png" alt="" />
         </div>
-        <div class="opacity-80 text-[16px]">
-          <p class="w-[528px]">
+        <div class="opacity-80 text-[16px] mt-[20px] md:mt-[0px]">
+          <p class="md:w-[528px]">
             Green Earth is a global tree plantation initiative dedicated to
             fighting climate change. Since our start, we’ve planted over 500,000
             trees worldwide. By joining our campaign, you help restore forests,
@@ -448,38 +454,68 @@
       </div>
     </section>
     <!-- impact section -->
-    <section class="bg-[#CFF0DC] h-[450px]">
+    <section class="bg-[#CFF0DC] h-[670px] md:h-[450px]">
       <div class="pt-[100px] pb-[40px]">
         <h1 class="dark1 text-4xl font-semibold text-center">Our Impact</h1>
       </div>
 
-      <div class="flex justify-around">
-        <div class="bg-white p-10 w-[516px] text-center rounded-xl">
+      <div class="flex flex-col items-center gap-3 md:flex-row justify-around">
+        <div
+          class="bg-white p-10 w-[316px] md:w-[516px] text-center rounded-xl"
+        >
           <h3 class="green text-[32px] font-semibold">500K+</h3>
           <p class="font-normal text-[16px] dark1 opacity-80">Trees Planted</p>
         </div>
-        <div class="bg-white p-10 w-[516px] text-center rounded-xl">
+        <div
+          class="bg-white p-10 w-[316px] md:w-[516px] text-center rounded-xl"
+        >
           <h3 class="green text-[32px] font-semibold">500K+</h3>
           <p class="font-normal text-[16px] dark1 opacity-80">Trees Planted</p>
         </div>
-        <div class="bg-white p-10 w-[516px] text-center rounded-xl">
+        <div
+          class="bg-white p-10 w-[316px] md:w-[516px] text-center rounded-xl"
+        >
           <h3 class="green text-[32px] font-semibold">500K+</h3>
           <p class="font-normal text-[16px] dark1 opacity-80">Trees Planted</p>
         </div>
       </div>
     </section>
+
     <!-- login section -->
-    <section>
-      <h1>Plant a Tree Today</h1>
-      <div>
-        <input type="text" />
-        <input type="email" />
-        <select class="select select-ghost">
-          <option disabled selected>Pick a font</option>
+    <section class="bg-[#166534]">
+      <h1
+        class="pt-[100px] pb-[40px] text-white text-center text-[32px] font-semibold"
+      >
+        Plant a Tree Today
+      </h1>
+      <div
+        class="bg-[#15803D] flex flex-col max-w-3xl mx-auto p-[40px] gap-4 items-center rounded-2xl"
+      >
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
+        />
+        <input
+          type="email"
+          placeholder="Your Email Address"
+          class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
+        />
+        <select
+          class="select select-ghost bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl"
+        >
+          <option disabled selected class="bg-white">Number of Trees</option>
           <option>Inter</option>
           <option>Poppins</option>
           <option>Raleway</option>
         </select>
+        <button>
+          <a
+            class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0 mt-[36px] md:mb-[20px] w-[320px] md:w-[570px]"
+          >
+            Donate Now</a
+          >
+        </button>
       </div>
     </section>
   </body>
