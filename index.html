@@ -10,7 +10,7 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>Green Earth</title>
     <style>
       .dark1 {
         color: #1f2937;
@@ -25,46 +25,21 @@
     </style>
   </head>
   <body>
-    <nav class="">
+    <!-- Navbar -->
+    <nav>
       <div
         class="text-white navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]"
       >
         <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabindex="0"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li><a>About</a></li>
-              <li><a>Gallery</a></li>
-              <li><a>Plant a Tree</a></li>
-            </ul>
-          </div>
-          <a class="btn btn-ghost text-xl md:text-2xl font-bold p-0"
-            >Green Earth</a
+          <a class="btn btn-ghost text-xl md:text-2xl font-bold p-0">
+            Green Earth</a
           >
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
-            <li><a class="font-normal">About</a></li>
-            <li><a class="font-normal">Gallery</a></li>
-            <li><a class="font-normal">Plant a Tree</a></li>
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
           </ul>
         </div>
         <div class="navbar-end text-white rounded-xl">
@@ -75,8 +50,8 @@
         </div>
       </div>
     </nav>
-    <!-- hero section -->
-    <section
+    <!-- hero-section -->
+     <section
       class="hero-section bg-[#CFF0DC] flex justify-between items-center"
     >
       <div>
@@ -104,44 +79,44 @@
         <img src="./assets/hero-leaf2.png" alt="" class="hidden md:block" />
       </div>
     </section>
-    <!-- products section -->
+    <!-- Products section -->
     <section class="mt-[50px]">
       <div>
         <h1 class="text-center font-semibold text-[32px] text-[#1F2937]">
           Choose Your Trees
         </h1>
       </div>
-      <section id="spinner" class=" flex justify-center items-center py-10 hidden">
-      <span class="loading loading-dots loading-xl"></span>
-    </section>
-      <div class="flex flex-col lg:grid lg:grid-cols-6 md:px-[135px] mt-[50px] gap-[30px]">
-        <div id="" class="col-span-1 space-y-4 p-5 md:p-0 justify-between items-center md:items-start">
+      <section
+        id="spinner"
+        class="flex justify-center items-center py-10 hidden"
+      >
+        <span class="loading loading-dots loading-xl"></span>
+      </section>
+
+      <div
+        class="flex flex-col lg:grid lg:grid-cols-6 md:px-[135px] mt-[50px] gap-[30px]"
+      >
+  
+        <div
+          class="col-span-1 space-y-4 p-5 md:p-0 justify-between items-center md:items-start"
+        >
           <h3 class="font-semibold text-[20px]">Categories</h3>
-          <ul id="catagoryContainer">
-          </ul>
+          <ul id="catagoryContainer"></ul>
         </div>
         <div class="col-span-4">
-          <div id="categoryContent" class="flex flex-col items-center md:grid md: grid-cols-2 lg:grid lg:grid-cols-3 gap-5">
+          <div
+            id="categoryContent"
+            class="flex flex-col items-center md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 gap-5"
+          ></div>
         </div>
-      </div>
         <div class="col-span-1">
           <h3 class="font-bold text-xl mb-[20px]">Your Cart</h3>
-          <ul id="cart-container">
-            <li>
-              <div class="flex justify-between items-center">
-              <div>
-                <h3 class="font-bold text-xl">Neem Tree</h3>
-                <p>600</p>
-              </div>
-              <div>
-                <p id="deleteBtn">❌</p>
-              </div>
-              </div>
-            </li>
-          </ul>
-          <p id="currentTotal" class="text-right font-bold text-lg mt-[15px]">Total:0</p>
+          <ul id="cart-container"></ul>
+          <p class="text-right font-bold text-lg mt-[15px]">
+            Total: <span id="currentTotal">0</span>
+          </p>
         </div>
-
+      </div>
     </section>
     <!-- feature section -->
     <section class="mb-[100px]">
@@ -241,23 +216,18 @@
         © 2025 Green Earth. All Rights Reserved.
       </p>
     </footer>
+
+    <!-- Modal for details -->
     <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box rounded-3xl">
-    <div id="details-container">
-
-    </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-<div>
-
-</div>
+      <div class="modal-box rounded-3xl">
+        <div id="details-container"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <script src="./index.js"></script>
   </body>
