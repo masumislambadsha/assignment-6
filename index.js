@@ -90,17 +90,16 @@ const displayWordDetails = (plant) =>{
         </h2>
         <img src="${plant.image}">
         <div>
-        <p class="text-2xl font-semibold>
-          <span class="text-2xl font-semibold">Category:</span> ${plant.category}
-        </p>
+        <p class="text-2xl font-normal ">
+          <span class="text-2xl font-semibold">Category:</span> ${plant.category}</p>
         </div>
         <div class="space-y-3">
-          <p class="text-2xl font-medium">
-           <span class="text-2xl font-semibold">Price:</span> ${plant.price}
+          <p class="text-2xl font-normal ">
+          <span class="text-2xl font-semibold">Price:</span> ${plant.price}</p>
           </p>
         </div>
         <div class="space-y-3">
-          <p class="text-2xl font-normal font-bangla text-gray-600">
+          <p class="text-2xl font-normal ">
           <span class="text-2xl font-semibold">Discription:</span> ${plant.description}</p>
         </div>
         </div>
