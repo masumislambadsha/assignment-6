@@ -78,10 +78,10 @@
     </nav>
     <!-- hero-section -->
     <section
-      class="hero-section bg-[#CFF0DC] flex justify-center md:justify-between items-center"
+      class="hero-section bg-[#CFF0DC] flex flex-col md:flex-row justify-center md:justify-between items-center"
     >
       <div>
-        <img src="./assets/hero-leaf1.png" alt="" class="w-[350px] md:w-auto" />
+        <img src="./assets/hero-leaf1.png" alt="" class="hidden md:block" />
       </div>
       <div class="text-center">
         <h2 class="text-[28px] md:w-auto md:text-[48px] font-bold pt-[50px] dark1">
@@ -101,8 +101,12 @@
           >
         </button>
       </div>
+      <div class="flex md:hidden">
+        <img src="./assets/hero-leaf1.png" alt="" class="w-1/2">
+        <img src="./assets/hero-leaf2.png" alt="" class="w-1/2">
+      </div>
       <div>
-        <img src="./assets/hero-leaf2.png" alt="" class="w-[350px] md:w-auto" />
+        <img src="./assets/hero-leaf2.png" alt="" class="hidden md:block" />
       </div>
     </section>
     <!-- Products section -->
