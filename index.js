@@ -1,94 +1,57 @@
 const catagoryContainer = document.getElementById("catagoryContainer");
-      const categoryContent = document.getElementById("categoryContent");
-      const cartContainer = document.getElementById("cart-container");
-      let currentTotal = 0;
+const categoryContent = document.getElementById("categoryContent");
+const cartContainer = document.getElementById("cart-container");
+const detailsContainer = document.getElementById("details-container");
+let currentTotal = 0;
 
-      const manageSpinner = (status) => {
-        if (status) {
-          document.getElementById("spinner").classList.remove("hidden");
-          document.getElementById("categoryContent").classList.add("hidden");
-        } else {
-          document.getElementById("spinner").classList.add("hidden");
-          document.getElementById("categoryContent").classList.remove("hidden");
-        }
-      };
-
-      // Update total
-      const updateTotal = (amount) => {
-        currentTotal += amount;
-        document.getElementById("currentTotal").innerText = currentTotal;
-      };
-
-      // Add to Cart
-      const addToCart = (name, price) => {
-  const li = document.createElement("li");
-  li.innerHTML = `
-    <div class="flex justify-between items-center my-2 gap-5">
-      <div>
-        <h3 class="font-bold text-md">${name}</h3>
-        <p>${price}</p>
-      </div>
-      <div>
-        <p class="cursor-pointer remove-btn">❌</p>
-      </div>
-    </div>
-  `;
-
-  // Attach delete event only to ❌
-  li.querySelector(".remove-btn").addEventListener("click", () => {
-    removeFromCart(li, price);
-  });
-
-  cartContainer.appendChild(li);
-  updateTotal(price);
+const manageSpinner = (status) => {
+  if (status) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("categoryContent").classList.add("hidden");
+  } else {
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("categoryContent").classList.remove("hidden");
+  }
+};
+const updateTotal = (amount) => {
+  currentTotal += amount;
+  document.getElementById("currentTotal").innerText = currentTotal;
+};
+const loadCategory = () => {
+  fetch("https://openapi.programming-hero.com/api/categories")
+    .then((res) => res.json())
+    .then((data) => displayCategory(data.categories));
 };
 
-      // Remove from cart
-      const removeFromCart = (cartItem, price) => {
-        cartItem.remove();
-        updateTotal(-price);
-      };
-
-      // Load categories
-      const loadCategory = () => {
-        fetch("https://openapi.programming-hero.com/api/categories")
-          .then((res) => res.json())
-          .then((data) => displayCategory(data.categories))
-          .catch(console.error);
-      };
-
-      const displayCategory = (categories) => {
-        catagoryContainer.innerHTML = "";
-        categories.forEach((category) => {
-          catagoryContainer.innerHTML += `
+const displayCategory = (categories) => {
+  catagoryContainer.innerHTML = "";
+  categories.forEach((category) => {
+    catagoryContainer.innerHTML += `
             <li id="${category.id}" class="font-medium text-[16px] hover:text-white hover:bg-[#15803D] w-full py-2 px-[10px] rounded-lg">
               ${category.category_name}
             </li>
           `;
-        });
+  });
 
-        catagoryContainer.addEventListener("click", (e) => {
-          const allLi = document.querySelectorAll("#catagoryContainer li");
-          allLi.forEach((li) =>
-            li.classList.remove("text-white", "bg-[#15803D]")
-          );
+  catagoryContainer.addEventListener("click", (e) => {
+    const allLi = document.querySelectorAll("#catagoryContainer li");
+    allLi.forEach((li) => li.classList.remove("text-white", "bg-[#15803D]"));
 
-          if (e.target.localName === "li") {
-            e.target.classList.add("text-white", "bg-[#15803D]");
-            loadCategoryContent(e.target.id);
-          }
-        });
-      };
+    if (e.target.localName === "li") {
+      e.target.classList.add("text-white", "bg-[#15803D]");
+      loadCategoryContent(e.target.id);
+    }
+  });
+};
 
-      const loadCategoryContent = (categoryId) => {
-        manageSpinner(true);
-        fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
-          .then((res) => res.json())
-          .then((data) => showCategoryContent(data.plants))
-          .catch(console.error);
-      };
+const loadCategoryContent = (categoryId) => {
+  manageSpinner(true);
+  fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
+    .then((res) => res.json())
+    .then((data) => displayCategoryContent(data.plants));
+};
 
-      const showCategoryContent = (contents) => {
+const displayCategoryContent = (contents) => {
   categoryContent.innerHTML = "";
   contents.forEach((content) => {
     categoryContent.innerHTML += `
@@ -122,16 +85,14 @@ const catagoryContainer = document.getElementById("catagoryContainer");
 };
 const loadImgDetail = (id) => {
   fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
-    .then(res => res.json())
-    .then(data => displayImgDetails(data.plants))
-    .catch(console.error);
+    .then((res) => res.json())
+    .then((data) => displayImgDetails(data.plants));
 };
 
 const displayImgDetails = (plant) => {
-  const detailsBox = document.getElementById("details-container");
   document.getElementById("word_modal").showModal();
 
-  detailsBox.innerHTML = `
+  detailsContainer.innerHTML = `
     <div class="space-y-[24px] p-6">
       <h2 class="font-semibold text-2xl">${plant.name}</h2>
       <img src="${plant.image}" class="w-full h-auto rounded-lg" />
@@ -145,15 +106,37 @@ const displayImgDetails = (plant) => {
     </div>
   `;
 };
+const addToCart = (name, price) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <div class="flex justify-between items-center my-2 gap-5">
+      <div>
+      <h3 class="font-bold text-md">${name}</h3>
+         <p>${price}</p>
+      </div>
+      <div>
+        <p class="cursor-pointer remove-btn">❌</p>
+      </div>
+    </div>
+  `;
 
+  li.querySelector(".remove-btn").addEventListener("click", () => {
+    removeFromCart(li, price);
+  });
 
+  cartContainer.appendChild(li);
+  updateTotal(price);
+};
 
-      // Load all plants by default
-      const loadAllPlants = () => {
-        fetch("https://openapi.programming-hero.com/api/plants")
-          .then((res) => res.json())
-          .then((data) => showCategoryContent(data.plants))
-      };
+const removeFromCart = (cartItem, price) => {
+  cartItem.remove();
+  updateTotal(-price);
+};
+const loadAllPlants = () => {
+  fetch("https://openapi.programming-hero.com/api/plants")
+    .then((res) => res.json())
+    .then((data) => displayCategoryContent(data.plants));
+};
 
-      loadCategory();
-      loadAllPlants();
+loadCategory();
+loadAllPlants();
