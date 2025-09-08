@@ -34,54 +34,56 @@
   <body class="inter">
     <!-- navbar -->
     <nav class="">
-      <div
-        class="text-white navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]"
-      >
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabindex="0"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow bg-[#4d4d4d]"
-            >
-              <li><a>About</a></li>
-              <li><a>Gallery</a></li>
-              <li><a>Plant a Tree</a></li>
-            </ul>
-          </div>
-          <a class="text-xl md:text-2xl font-bold text-white p-0"
-            >Green Earth</a
-          >
+<div class="text-white flex justify-between navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]">
+  <div>
+    <a class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white flex justify-center items-center md:w-[150px] md:h-[50px] hover:bg-[#2527263b] p-0"> Green Earth</a>
+  </div>
+
+  <!-- Middle: Nav links সবসময় center এ -->
+  <div class="hidden md:flex flex-1 justify-center">
+    <ul class="menu menu-horizontal px-1">
+      <li><a>About</a></li>
+      <li><a>Gallery</a></li>
+      <li><a>Plant a Tree</a></li>
+    </ul>
+  </div>
+
+  <!-- Right: CTA button সবসময়, Cart শুধু sm এ -->
+  <div class="flex-none flex items-center gap-3">
+    <!-- CTA Button -->
+    <button class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0">
+      Plant a Tree
+    </button>
+
+    <!-- Cart Dropdown: শুধু sm ডিভাইসে -->
+    <div class="dropdown dropdown-end block md:hidden">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <div class="indicator">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6H19m-12 0a1 1 0 102 0m8 0a1 1 0 102 0" />
+          </svg>
+          <span id="cartCount"
+            class="badge badge-sm indicator-item bg-red-600 text-white">0</span>
         </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li><a class="font-normal">About</a></li>
-            <li><a class="font-normal">Gallery</a></li>
-            <li><a class="font-normal">Plant a Tree</a></li>
-          </ul>
-        </div>
-        <div class="navbar-end text-white rounded-xl">
-          <a
-            class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0"
-            >Plant a Tree</a
-          >
-        </div>
+      </label>
+      <div tabindex="0"
+        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64 text-black">
+        <ul id="cartDropdownItems" class="space-y-2">
+          <li class="text-sm text-gray-500">No items in cart</li>
+        </ul>
+        <div class="divider"></div>
+        <p class="font-bold">Total: <span id="cartDropdownTotal">0</span></p>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
     </nav>
     <!-- hero-section -->
     <section
@@ -137,7 +139,7 @@
           class="col-span-1 space-y-4 p-5 md:p-0 mx-auto md:mx-0"
         >
           <h3 class="font-bold text-[20px]">Categories</h3>
-          <ul id="catagoryContainer" class="space-y-1">
+          <ul id="catagoryContainer" class="space-y-3 gap-2 grid grid-cols-2 md:block cursor-pointer">
 
           </ul>
         </div>
@@ -147,7 +149,7 @@
             class="flex flex-col items-center md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 gap-5"
           ></div>
         </div>
-        <div class="col-span-1 mx-auto md:mx-0 justify-center items-center md:items-start px-[20px]">
+        <div class="col-span-1 mx-auto md:mx-0 justify-center items-center hidden md:block  md:items-start px-[20px]">
           <h3 class="font-bold text-xl mb-[20px]">Your Cart</h3>
           <ul id="cart-container"></ul>
           <p class="md:text-right font-bold text-lg mt-[15px]">
