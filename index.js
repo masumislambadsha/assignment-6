@@ -33,19 +33,32 @@ const updateDropdown = () => {
     cartDropdownTotal.innerText = 0;
     return;
   }
-  cartItems.forEach((item) => {
+  cartItems.forEach((item, index) => {
     cartDropdownItems.innerHTML += `
-      <li class="flex justify-between items-center">
+    <li class="flex justify-between items-center">
       <div>
-      <span>${item.name}</span>
+        <span>${item.name}</span>
         <span>${item.price}</span>
-        </div>
-        <div>
-        <span class="cursor-pointer remove-btn">❌</span>
-        </div>
-      </li>
-    `;
+      </div>
+      <div>
+        <span class="cursor-pointer remove-btn" data-index="${index}">❌</span>
+      </div>
+    </li>
+  `;
   });
+  cartDropdownItems.querySelectorAll(".remove-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const idx = e.target.getAttribute("data-index");
+      const item = cartItems[idx];
+      cartItems.splice(idx, 1);
+      updateTotal(-item.price);
+      updateDropdown();
+      [...cartContainer.children]
+        .find((li) => li.textContent.includes(item.name))
+        ?.remove();
+    });
+  });
+
   let total = cartItems.reduce((sum, item) => sum + item.price, 0);
   cartDropdownTotal.innerText = total;
 };

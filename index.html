@@ -11,14 +11,17 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Green Earth</title>
     <style>
       .inter {
-  font-family: "Inter", sans-serif;
-}
+        font-family: "Inter", sans-serif;
+      }
       .dark1 {
         color: #1f2937;
       }
@@ -34,56 +37,68 @@
   <body class="inter">
     <!-- navbar -->
     <nav class="">
-<div class="text-white flex justify-between navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]">
-  <div>
-    <a class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white flex justify-center items-center md:w-[150px] md:h-[50px] hover:bg-[#2527263b] p-0"> Green Earth</a>
-  </div>
-
-  <!-- Middle: Nav links সবসময় center এ -->
-  <div class="hidden md:flex flex-1 justify-center">
-    <ul class="menu menu-horizontal px-1">
-      <li><a>About</a></li>
-      <li><a>Gallery</a></li>
-      <li><a>Plant a Tree</a></li>
-    </ul>
-  </div>
-
-  <!-- Right: CTA button সবসময়, Cart শুধু sm এ -->
-  <div class="flex-none flex items-center gap-3">
-    <!-- CTA Button -->
-    <button class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0">
-      Plant a Tree
-    </button>
-
-    <!-- Cart Dropdown: শুধু sm ডিভাইসে -->
-    <div class="dropdown dropdown-end block md:hidden">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
-        <div class="indicator">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6H19m-12 0a1 1 0 102 0m8 0a1 1 0 102 0" />
-          </svg>
-          <span id="cartCount"
-            class="badge badge-sm indicator-item bg-red-600 text-white">0</span>
+      <div
+        class="text-white flex justify-between navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]"
+      >
+        <div>
+          <a
+            class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white flex justify-center items-center md:w-[150px] md:h-[50px] hover:bg-[#2527263b] p-0"
+          >
+            Green Earth</a
+          >
         </div>
-      </label>
-      <div tabindex="0"
-        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64 text-black">
-        <ul id="cartDropdownItems" class="space-y-2">
-          <li class="text-sm text-gray-500">No items in cart</li>
-        </ul>
-        <div class="divider"></div>
-        <p class="font-bold">Total: <span id="cartDropdownTotal">0</span></p>
+        <div class="hidden md:flex flex-1 justify-center">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="flex-none flex items-center gap-3">
+          <button
+            class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0"
+          >
+            Plant a Tree
+          </button>
+          <div class="dropdown dropdown-end block md:hidden">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6H19m-12 0a1 1 0 102 0m8 0a1 1 0 102 0"
+                  />
+                </svg>
+                <span
+                  id="cartCount"
+                  class="badge badge-sm indicator-item bg-red-600 text-white"
+                  >0</span
+                >
+              </div>
+            </label>
+            <div
+              tabindex="0"
+              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64 text-black"
+            >
+              <ul id="cartDropdownItems" class="space-y-2">
+                <li class="text-sm text-gray-500">No items in cart</li>
+              </ul>
+              <div class="divider"></div>
+              <p class="font-bold">
+                Total: <span id="cartDropdownTotal">0</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
     </nav>
     <!-- hero-section -->
     <section
@@ -93,7 +108,9 @@
         <img src="./assets/hero-leaf1.png" alt="" class="hidden md:block" />
       </div>
       <div class="text-center">
-        <h2 class="text-[28px] md:w-auto md:text-[48px] font-bold pt-[50px] dark1">
+        <h2
+          class="text-[28px] md:w-auto md:text-[48px] font-bold pt-[50px] dark1"
+        >
           Plant a Tree, Grow a Future
         </h2>
         <p
@@ -111,8 +128,8 @@
         </button>
       </div>
       <div class="flex md:hidden">
-        <img src="./assets/hero-leaf1.png" alt="" class="w-1/2">
-        <img src="./assets/hero-leaf2.png" alt="" class="w-1/2">
+        <img src="./assets/hero-leaf1.png" alt="" class="w-1/2" />
+        <img src="./assets/hero-leaf2.png" alt="" class="w-1/2" />
       </div>
       <div>
         <img src="./assets/hero-leaf2.png" alt="" class="hidden md:block" />
@@ -135,13 +152,12 @@
       <div
         class="flex flex-col lg:grid lg:grid-cols-6 md:px-[135px] mt-[50px] gap-[30px]"
       >
-        <div
-          class="col-span-1 space-y-4 p-5 md:p-0 mx-auto md:mx-0"
-        >
+        <div class="col-span-1 space-y-4 p-5 md:p-0 mx-auto md:mx-0">
           <h3 class="font-bold text-[20px]">Categories</h3>
-          <ul id="catagoryContainer" class="space-y-3 gap-2 grid grid-cols-2 md:block cursor-pointer">
-
-          </ul>
+          <ul
+            id="catagoryContainer"
+            class="space-y-3 gap-2 grid grid-cols-2 md:block cursor-pointer"
+          ></ul>
         </div>
         <div class="col-span-4">
           <div
@@ -149,7 +165,9 @@
             class="flex flex-col items-center md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 gap-5"
           ></div>
         </div>
-        <div class="col-span-1 mx-auto md:mx-0 justify-center items-center hidden md:block  md:items-start px-[20px]">
+        <div
+          class="col-span-1 mx-auto md:mx-0 justify-center items-center hidden md:block md:items-start px-[20px]"
+        >
           <h3 class="font-bold text-xl mb-[20px]">Your Cart</h3>
           <ul id="cart-container"></ul>
           <p class="md:text-right font-bold text-lg mt-[15px]">
@@ -203,13 +221,17 @@
           class="bg-white p-10 w-[316px] md:w-[516px] text-center rounded-xl transition-transform duration-500 hover:bg-[#90dbae] hover:scale-110"
         >
           <h3 class="green text-[32px] font-semibold">120+</h3>
-          <p class="font-normal text-[16px] dark1 opacity-80">Communities Involved</p>
+          <p class="font-normal text-[16px] dark1 opacity-80">
+            Communities Involved
+          </p>
         </div>
         <div
           class="bg-white p-10 w-[316px] md:w-[516px] text-center rounded-xl transition-transform duration-500 hover:bg-[#90dbae] hover:scale-110"
         >
           <h3 class="green text-[32px] font-semibold">30+</h3>
-          <p class="font-normal text-[16px] dark1 opacity-80">Countries Reached</p>
+          <p class="font-normal text-[16px] dark1 opacity-80">
+            Countries Reached
+          </p>
         </div>
       </div>
     </section>
@@ -222,36 +244,36 @@
         Plant a Tree Today
       </h1>
       <form action="" class="">
-      <div
-        class="bg-[#15803D] flex flex-col max-w-3xl mx-auto p-[40px] gap-4 items-center rounded-2xl"
-      >
-        <input
-          type="text"
-          placeholder="Your Name"
-          class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
-        />
-        <input
-          type="email"
-          placeholder="Your Email Address"
-          class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
-        />
-        <select
-          class="select select-ghost bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl"
+        <div
+          class="bg-[#15803D] flex flex-col max-w-3xl mx-auto p-[40px] gap-4 items-center rounded-2xl"
         >
-          <option disabled selected class="bg-white">Number of Trees</option>
-          <option>1 Tree -$5</option>
-          <option>5 Tree -$25</option>
-          <option>10 Tree -$50</option>
-        </select>
-        <button>
-          <a
-            class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0 mt-[36px] md:mb-[20px] w-[320px] md:w-[570px]"
+          <input
+            type="text"
+            placeholder="Your Name"
+            class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
+          />
+          <input
+            type="email"
+            placeholder="Your Email Address"
+            class="bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl pl-[20px]"
+          />
+          <select
+            class="select select-ghost bg-white w-[320px] md:w-[570px] h-[48px] rounded-xl"
           >
-            Donate Now</a
-          >
-        </button>
-      </div>
-    </form>
+            <option disabled selected class="bg-white">Number of Trees</option>
+            <option>1 Tree -$5</option>
+            <option>5 Tree -$25</option>
+            <option>10 Tree -$50</option>
+          </select>
+          <button>
+            <a
+              class="btn bg-[#FACC15] rounded-3xl text-sm md:text-base p-6 text-[#15803D] font-medium shadow-none border-0 mt-[36px] md:mb-[20px] w-[320px] md:w-[570px]"
+            >
+              Donate Now</a
+            >
+          </button>
+        </div>
+      </form>
     </section>
     <footer class="bg-[#14532D] h-[50px] flex items-center justify-center">
       <p class="text-white text-center">
