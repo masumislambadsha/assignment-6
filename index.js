@@ -114,6 +114,9 @@ Add to Cart
 }
 
 const addToCart = (name, price) => {
+  alert(`
+Added ${name}🌲 To The Cart
+Price Will Be $${price}`)
   const li = document.createElement("li")
   li.innerHTML = `
 <div class="flex justify-between items-center my-2 gap-5">
