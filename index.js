@@ -190,6 +190,7 @@ const removeFromCart = (cartItem, price, name) => {
 };
 
 const loadAllPlants = () => {
+    manageSpinner(true);
   fetch("https://openapi.programming-hero.com/api/plants")
     .then((res) => res.json())
     .then((data) => displayCategoryContent(data.plants));
