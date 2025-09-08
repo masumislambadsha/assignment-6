@@ -40,28 +40,55 @@
       <div
         class="text-white flex justify-between navbar bg-[#15803D] shadow-sm lg:px-[140px] lg:py-[24px] md:px-[50px]"
       >
-<div class="flex items-center gap-2">
+        <div class="flex items-center gap-2">
+          <div class="dropdown md:hidden">
+            <div tabindex="0" role="button" class="btn btn-ghost p-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu dropdown-content mt-3 p-2 shadow backdrop-blur-sm rounded-box w-52 text-black"
+            >
+              <li>
+                <a
+                  class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]"
+                  >Plant a Tree</a
+                >
+              </li>
+            </ul>
+          </div>
 
-      <div class="dropdown md:hidden">
-        <div tabindex="0" role="button" class="btn btn-ghost p-2 ">
-
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <a
+            class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white hover:bg-[#2527263b] p-2"
+          >
+            Green Earth
+          </a>
         </div>
-        <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow backdrop-blur-sm rounded-box w-52 text-black  ">
-          <li><a class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]">About</a></li>
-          <li><a class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]">Gallery</a></li>
-          <li><a class="text-[16px] font-normal md:mx-auto md:w-[600px] text-center mt-[10px] text-[#1F2937]">Plant a Tree</a></li>
-        </ul>
-      </div>
-
-
-      <a class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white hover:bg-[#2527263b] p-2">
-        Green Earth
-      </a>
-    </div>
         <div class="hidden md:flex flex-1 justify-center">
           <ul class="menu menu-horizontal px-1">
             <li><a>About</a></li>
@@ -171,7 +198,7 @@
           <h3 class="font-bold text-[20px]">Categories</h3>
           <ul
             id="catagoryContainer"
-            class="space-y-3 gap-2 grid grid-cols-2 lg:block cursor-pointer "
+            class="space-y-3 gap-2 grid grid-cols-2 lg:block cursor-pointer"
           ></ul>
         </div>
         <div class="col-span-4">
