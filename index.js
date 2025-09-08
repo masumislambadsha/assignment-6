@@ -108,7 +108,7 @@ const displayCategoryContent = (contents) => {
   categoryContent.innerHTML = "";
   contents.forEach((content) => {
     categoryContent.innerHTML += `
-<div onclick="loadImgDetail(${content.id})" class="card bg-base-100 w-[300px] shadow-sm mt-3 cursor-pointer">
+<div onclick="loadImgDetail(${content.id})" class="card bg-base-100 w-[300px] shadow-sm mt-3 cursor-pointer grid">
 <figure>
 <img src="${content.image}" alt="${content.name}" />
 </figure>
