@@ -40,13 +40,28 @@
       <div
         class="text-white flex justify-between navbar bg-[#15803D] shadow-sm md:px-[140px] md:py-[24px]"
       >
-        <div>
-          <a
-            class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white flex justify-center items-center md:w-[150px] md:h-[50px] hover:bg-[#2527263b] p-0"
-          >
-            Green Earth</a
-          >
+<div class="flex items-center gap-2">
+      <!-- mobile hamburger -->
+      <div class="dropdown md:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost p-2">
+          <!-- hamburger icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </div>
+        <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
+          <li><a>About</a></li>
+          <li><a>Gallery</a></li>
+          <li><a>Plant a Tree</a></li>
+        </ul>
+      </div>
+
+      <!-- brand -->
+      <a class="btn btn-ghost normal-case text-xl md:text-2xl font-bold text-white hover:bg-[#2527263b] p-0">
+        Green Earth
+      </a>
+    </div>
         <div class="hidden md:flex flex-1 justify-center">
           <ul class="menu menu-horizontal px-1">
             <li><a>About</a></li>
