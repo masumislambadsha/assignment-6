@@ -173,7 +173,8 @@ const updateDropdown = () => {
   }
 
   cartItems.forEach((item, index) => {
-    cartDropdownItemsEl.innerHTML += `
+    cartDropdownItemsEl.innerHTML +=
+    `
       <li class="flex justify-between items-center">
         <div>
           <h4 class="font-bold text-md">${item.name}:</h4>
