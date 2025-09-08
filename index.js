@@ -35,13 +35,13 @@ const updateDropdown = () => {
   }
   cartItems.forEach((item, index) => {
     cartDropdownItems.innerHTML += `
-    <li class="flex justify-between items-center">
+     <li class="flex ">
       <div>
-        <span>${item.name}</span>
-        <span>${item.price}</span>
+        <h4 class="font-bold text-md">${item.name}:</h4>
+        <p class="font-semibold "> $${item.price}</p>
       </div>
       <div>
-        <span class="cursor-pointer remove-btn" data-index="${index}">❌</span>
+        <p class="cursor-pointer remove-btn" data-index="${index}">❌</p>
       </div>
     </li>
   `;
@@ -121,7 +121,7 @@ const displayCategoryContent = (contents) => {
 ${content.category}
 </span>
 </p>
-<p class="text-right font-semibold dark1 text-[14px]">${content.price}</p>
+<p class="text-right font-semibold dark1 text-[14px]">$${content.price}</p>
 </div>
 <div class="card-actions">
 <button onclick="event.stopPropagation(); addToCart('${content.name}', ${content.price})" class="btn btn-bg w-full rounded-3xl">
@@ -163,7 +163,7 @@ const addToCart = (name, price) => {
 <div class="flex justify-between items-center my-2 gap-5">
 <div>
 <h3 class="font-bold text-md">${name}</h3>
-<p>${price}</p>
+<p>$${price}</p>
 </div>
 <div>
 <p class="cursor-pointer remove-btn">❌</p>
