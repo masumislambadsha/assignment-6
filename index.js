@@ -26,29 +26,36 @@ const updateTotal = (amount) => {
 };
 
 const updateDropdown = () => {
-  cartCount.innerText = cartItems.length;
-  cartDropdownItems.innerHTML = "";
+  const cartCountEl = document.getElementById("cartCount");
+  const cartDropdownItemsEl = document.getElementById("cartDropdownItems");
+  const cartDropdownTotalEl = document.getElementById("cartDropdownTotal");
+
+  if (!cartCountEl || !cartDropdownItemsEl || !cartDropdownTotalEl) return;
+
+  cartCountEl.innerText = cartItems.length;
+  cartDropdownItemsEl.innerHTML = "";
+
   if (cartItems.length === 0) {
-    cartDropdownItems.innerHTML = `<li class="text-sm text-gray-500">No items in cart</li>`;
-    cartDropdownTotal.innerText = 0;
+    cartDropdownItemsEl.innerHTML = `<li class="text-sm text-gray-500">No items in cart</li>`;
+    cartDropdownTotalEl.innerText = 0;
     return;
   }
+
   cartItems.forEach((item, index) => {
-    cartDropdownItems.innerHTML += `
-     <li class="flex ">
-      <div>
-        <h4 class="font-bold text-md">${item.name}:</h4>
-        <p class="font-semibold "> $${item.price}</p>
-      </div>
-      <div>
+    cartDropdownItemsEl.innerHTML += `
+      <li class="flex justify-between items-center">
+        <div>
+          <h4 class="font-bold text-md">${item.name}:</h4>
+          <p class="font-semibold">$${item.price}</p>
+        </div>
         <p class="cursor-pointer remove-btn" data-index="${index}">❌</p>
-      </div>
-    </li>
-  `;
+      </li>
+    `;
   });
-  cartDropdownItems.querySelectorAll(".remove-btn").forEach((btn) => {
+
+  cartDropdownItemsEl.querySelectorAll(".remove-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const idx = e.target.getAttribute("data-index");
+      const idx = Number(e.target.getAttribute("data-index"));
       const item = cartItems[idx];
       cartItems.splice(idx, 1);
       updateTotal(-item.price);
@@ -59,9 +66,17 @@ const updateDropdown = () => {
     });
   });
 
-  let total = cartItems.reduce((sum, item) => sum + item.price, 0);
-  cartDropdownTotal.innerText = total;
+  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+  cartDropdownTotalEl.innerText = total;
 };
+
+window.addEventListener("DOMContentLoaded", () => {
+  updateDropdown();
+});
+window.addEventListener("resize", () => {
+  updateDropdown();
+});
+
 
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -108,9 +123,9 @@ const displayCategoryContent = (contents) => {
   categoryContent.innerHTML = "";
   contents.forEach((content) => {
     categoryContent.innerHTML += `
-<div onclick="loadImgDetail(${content.id})" class="card bg-base-100 w-[300px] shadow-sm mt-3 cursor-pointer grid">
+<div onclick="loadImgDetail(${content.id})" class="card bg-base-100 w-[300px] shadow-sm mt-3 cursor-pointer grid md:content-between">
 <figure>
-<img src="${content.image}" alt="${content.name}" />
+<img src="${content.image}" alt="${content.name}" class="h-[300px]"/>
 </figure>
 <div class="card-body">
 <h2 class="card-title font-semibold text-[17px] dark1">${content.name}</h2>
